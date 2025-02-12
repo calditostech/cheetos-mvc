@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FF7F50, #000000, #808080);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    background: url('/img/logo.png') no-repeat center center;
+    background-size: contain;
+}
+
+.gear {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url('/img/gear.png') no-repeat center center;
+    background-size: contain;
+    animation: spin 4s linear infinite;
+}
+
+.gear.left {
+    left: 10%;
+}
+
+.gear.right {
+    right: 10%;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
