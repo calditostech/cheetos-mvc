@@ -7,13 +7,12 @@ Cheetos MVC é um mini framework MVC (Model-View-Controller) em PHP, projetado p
 Para começar a usar o Cheetos MVC, siga estas etapas:
 
 1. **Clone o repositório do Git:**
-   ```bash
-   git clone https://github.com/seu-usuario/cheetos-mvc.git
-
+git clone https://github.com/seu-usuario/cheetos-mvc.git
 cd cheetos-mvc
 composer install
 
 2. **Configuração NGINX**
+``bash
 server {
     listen 80;
     server_name seu-dominio.com;
@@ -34,6 +33,7 @@ server {
 }
 
 3. **Configuração APACHE**
+``bash
 <VirtualHost *:80>
     ServerAdmin webmaster@seu-dominio.com
     ServerName seu-dominio.com
@@ -54,6 +54,7 @@ server {
 </VirtualHost>
 
 4. **Estrutura do Projeto**
+``bash
 cheetos-mvc/
 ├── app/
 │   ├── Controllers/
@@ -77,6 +78,7 @@ cheetos-mvc/
 └── vendor/                         # Dependências instaladas via Composer
 
 5. **Rotas**
+``bash
 use App\Core\Router;
 use App\Controllers\HomeController;
 
@@ -89,6 +91,7 @@ $router->get('user/{id}', [new HomeController(), 'showUser']);
 return $router;
 
 6. **Controller**
+``bash
 namespace App\Controllers;
 
 use App\Core\View;
@@ -104,6 +107,7 @@ class HomeController {
 }
 
 7. **Para Rodar**
+``bash
 http://localhost:8080/home
 
 
