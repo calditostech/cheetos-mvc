@@ -7,12 +7,13 @@ Cheetos MVC é um mini framework MVC (Model-View-Controller) em PHP, projetado p
 Para começar a usar o Cheetos MVC, siga estas etapas:
 
 1. **Clone o repositório do Git:**
+```
 git clone https://github.com/seu-usuario/cheetos-mvc.git
 cd cheetos-mvc
 composer install
-
+```
 2. **Configuração NGINX**
-``bash
+```
 server {
     listen 80;
     server_name seu-dominio.com;
@@ -31,9 +32,9 @@ server {
         include fastcgi_params;
     }
 }
-
+```
 3. **Configuração APACHE**
-``bash
+```
 <VirtualHost *:80>
     ServerAdmin webmaster@seu-dominio.com
     ServerName seu-dominio.com
@@ -52,9 +53,10 @@ server {
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
+```
 
 4. **Estrutura do Projeto**
-``bash
+```
 cheetos-mvc/
 ├── app/
 │   ├── Controllers/
@@ -76,9 +78,10 @@ cheetos-mvc/
 │   └── user.php                    # View de usuário
 ├── composer.json                   # Configuração do Composer
 └── vendor/                         # Dependências instaladas via Composer
+```
 
 5. **Rotas**
-``bash
+```
 use App\Core\Router;
 use App\Controllers\HomeController;
 
@@ -89,9 +92,10 @@ $router->get('home', [new HomeController(), 'index']);
 $router->get('user/{id}', [new HomeController(), 'showUser']);
 
 return $router;
+```
 
 6. **Controller**
-``bash
+```
 namespace App\Controllers;
 
 use App\Core\View;
@@ -105,11 +109,11 @@ class HomeController {
         View::render('user', ['id' => $id]);
     }
 }
+```
 
 7. **Para Rodar**
-``bash
+```
 http://localhost:8080/home
-
-
+```
 Esse README fornece uma visão geral do projeto, instruções de instalação, configuração do servidor web, estrutura do projeto e exemplos de uso. Você pode ajustar conforme necessário para atender às suas necessidades específicas. Se precisar de mais alguma coisa, estou à disposição! 🚀
 
