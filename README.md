@@ -96,22 +96,89 @@ return $router;
 
 6. **Controller**
 ```
+<?php
+
 namespace App\Controllers;
 
-use App\Core\View;
+class UsersController {
 
-class HomeController {
     public function index() {
-        View::render('home', ['nome' => 'Ricardo']);
+        // Listar todos os registros
     }
 
-    public function showUser($id) {
-        View::render('user', ['id' => $id]);
+    public function show($id) {
+        // Exibir um registro específico
+    }
+
+    public function create() {
+        // Exibir o formulário de criação
+    }
+
+    public function store() {
+        // Salvar um novo registro
+    }
+
+    public function edit($id) {
+        // Exibir o formulário de edição
+    }
+
+    public function update($id) {
+        // Atualizar um registro específico
+    }
+
+    public function destroy($id) {
+        // Excluir um registro específico
+    }
+
+}
+
+```
+7. **Model**
+```
+<?php
+
+namespace App\Models;
+
+class Users {
+    protected $table = 'Users';
+    protected $columns = [];
+    
+    // Construtor
+    public function __construct() {
+        // Inicialize as colunas aqui
+        $this->columns = [
+            // Adicione as colunas aqui
+        ];
     }
 }
 ```
 
-7. **Para Rodar**
+8. **Comandos Personalizado para criar Controllers e Models**
+```
+php cheetos.php cheetos:controller Teste
+```
+Controller Teste criada com sucesso!
+
+          / \__
+        (    @\___
+        /         O
+       /   (_____)
+/_____/    U
+
+```
+php cheetos.php cheetos:model Teste
+```
+
+Model Teste criada com sucesso!
+
+          / \__
+        (    @\___
+        /         O
+       /   (_____)
+/_____/    U
+        
+
+9. **Para Rodar**
 ```
 http://localhost:8080/home
 ```
