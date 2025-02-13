@@ -61,9 +61,17 @@ cheetos-mvc/
 ├── app/
 │   ├── Controllers/
 │   │   └── HomeController.php      # Controladores da aplicação
-│   └── Core/
-│       ├── View.php                # Classe View para renderização de templates
-│       └── Router.php              # Classe Router para gerenciamento de rotas
+│   ├── Core/
+│   │   ├── View.php                # Classe View para renderização de templates
+│   │   └── Router.php              # Classe Router para gerenciamento de rotas
+│   ├── Models/
+│   │   └── Exemplo.php             # Modelos da aplicação
+│   └── Console/
+│       ├── Commands/
+│       │   ├── CommandHelpers.php  # Classe para exibir mensagens de sucesso e erro
+│       │   ├── MakeController.php  # Classe para criar controladores
+│       │   └── MakeModel.php       # Classe para criar modelos
+│       └── Console.php             # Classe principal do console
 ├── public/
 │   ├── index.php                   # Arquivo de entrada principal
 │   ├── css/
@@ -76,6 +84,7 @@ cheetos-mvc/
 ├── views/
 │   ├── home.php                    # View da página inicial
 │   └── user.php                    # View de usuário
+├── cheetos.php                     # Arquivo de comandos CLI para criar controllers e models
 ├── composer.json                   # Configuração do Composer
 └── vendor/                         # Dependências instaladas via Composer
 ```
