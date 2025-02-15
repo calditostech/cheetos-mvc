@@ -1,8 +1,23 @@
 <?php
 
+// Função para verificar e criar diretórios, se necessário
+function ensureDirectory($path) {
+    if (!file_exists($path)) {
+        mkdir($path, 0777, true);
+    }
+}
+
+// Função para detectar o sistema operacional
+function isWindows() {
+    return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+}
+
+// Pegar o nome do projeto a partir dos argumentos da linha de comando
+$projectName = $argv[1] ?? 'cheetos-mvc';
+
 // Definir o repositório e diretório de instalação
 $repoUrl = "https://github.com/calditostech/cheetos-mvc.git";
-$dir = "cheetos-mvc";
+$dir = $projectName;
 
 // Clonar o repositório
 exec("git clone $repoUrl $dir");
@@ -10,6 +25,16 @@ chdir($dir);
 
 // Instalar dependências do Composer
 exec("composer install");
+
+// Caminhos de configuração
+$nginxAvailable = "/etc/nginx/sites-available";
+$nginxEnabled = "/etc/nginx/sites-enabled";
+$apacheAvailable = "/etc/apache2/sites-available";
+
+// Garantir que os diretórios existam
+ensureDirectory($nginxAvailable);
+ensureDirectory($nginxEnabled);
+ensureDirectory($apacheAvailable);
 
 // Criar configuração NGINX
 $nginxConfig = "
@@ -32,9 +57,13 @@ server {
     }
 }
 ";
-file_put_contents("/etc/nginx/sites-available/cheetos-mvc", $nginxConfig);
-exec("ln -s /etc/nginx/sites-available/cheetos-mvc /etc/nginx/sites-enabled/");
-exec("service nginx restart");
+file_put_contents("$nginxAvailable/$projectName", $nginxConfig);
+if (isWindows()) {
+    exec("mklink /J $nginxEnabled/$projectName $nginxAvailable/$projectName");
+} else {
+    exec("ln -s $nginxAvailable/$projectName $nginxEnabled/");
+    exec("sudo service nginx restart");
+}
 
 // Criar configuração APACHE
 $apacheConfig = "
@@ -57,8 +86,10 @@ $apacheConfig = "
     CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ";
-file_put_contents("/etc/apache2/sites-available/cheetos-mvc.conf", $apacheConfig);
-exec("a2ensite cheetos-mvc");
-exec("service apache2 restart");
+file_put_contents("$apacheAvailable/$projectName.conf", $apacheConfig);
+if (!isWindows()) {
+    exec("sudo a2ensite $projectName");
+    exec("sudo service apache2 restart");
+}
 
 echo "Instalação do Cheetos MVC concluída com sucesso!\n";

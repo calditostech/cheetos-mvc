@@ -6,10 +6,10 @@ Cheetos MVC é um mini framework MVC (Model-View-Controller) em PHP, projetado p
 
 Para começar a usar o Cheetos MVC, siga estas etapas:
 
-1. Baixe e execute o script de instalação (certifique-se de estar no diretório raiz do seu projeto):
+1. Baixe o script de instalação e execute-o (certifique-se de estar no diretório raiz do seu projeto):
     ```bash
     curl -O https://raw.githubusercontent.com/calditostech/cheetos-mvc/main/cheetos-install.php
-    php cheetos-install.php
+    php cheetos-install.php meu-projeto
     ```
 
 2. Acesse a aplicação no navegador:
