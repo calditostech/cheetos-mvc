@@ -16,7 +16,7 @@ function isWindows() {
 $projectName = $argv[1] ?? 'cheetos-mvc';
 
 // Definir o repositório e diretório de instalação
-$repoUrl = "https://github.com/calditostech/cheetos-mvc.git";
+$repoUrl = "https://github.com/seu-usuario/cheetos-mvc.git";
 $dir = $projectName;
 
 // Clonar o repositório
@@ -92,4 +92,8 @@ if (!isWindows()) {
     exec("sudo service apache2 restart");
 }
 
+// Exibir imagem e texto
+$imagePath = "dog-smile.jpg"; // Certifique-se de que esta imagem exista no diretório raiz do projeto
 echo "Instalação do Cheetos MVC concluída com sucesso!\n";
+echo "<img src='$imagePath' alt='Cachorro sorrindo' style='width: 300px;'/>";
+echo "<h1 style='font-size: 50px; color: orange;'>Cheetos</h1>";
