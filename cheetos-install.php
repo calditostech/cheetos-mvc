@@ -92,8 +92,20 @@ if (!isWindows()) {
     exec("sudo service apache2 restart");
 }
 
-// Exibir imagem e texto
-$imagePath = "dog-smile.jpg"; // Certifique-se de que esta imagem exista no diretório raiz do projeto
+// Exibir desenho ASCII e texto
 echo "Instalação do Cheetos MVC concluída com sucesso!\n";
-echo "<img src='$imagePath' alt='Cachorro sorrindo' style='width: 300px;'/>";
-echo "<h1 style='font-size: 50px; color: orange;'>Cheetos</h1>";
+echo "
+      / \\__
+    (    @\\___
+    /         O
+   /   (_____)
+/_____/     U
+
+   _____ _            _           
+  / ____| |          | |          
+ | |    | | ___   ___| | _____ _ __ 
+ | |    | |/ _ \\ / __| |/ / _ \\ '__|
+ | |____| | (_) | (__|   <  __/ |
+  \\_____|_|\\___/ \\___|_|\\_\\___|_|
+                                  
+";
