@@ -16,7 +16,7 @@ function isWindows() {
 $projectName = $argv[1] ?? 'cheetos-mvc';
 
 // Definir o repositório e diretório de instalação
-$repoUrl = "https://github.com/seu-usuario/cheetos-mvc.git";
+$repoUrl = "https://github.com/calditostech/cheetos-mvc.git";
 $dir = $projectName;
 
 // Clonar o repositório
